@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lost & Found Sekolah</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<section class="hero"><div class="in">
+  <div class="nav"><span id="school" title="Klik untuk mengganti nama sekolah" style="cursor:pointer">🎒 Lost &amp; Found · Sekolahku</span><button id="theme">Ganti tema</button></div>
+  <h1>Barangmu mungkin sudah ditemukan.</h1>
+  <p class="lead">Papan digital untuk melapor barang hilang dan barang temuan di sekolah. Cari dulu, atau lapor sekarang.</p>
+  <div class="cta"><button class="b" data-new="lost">Saya kehilangan barang</button><button class="b o" data-new="found">Saya menemukan barang</button></div>
+</div></section>
+
+<div class="panel"><div class="bar">
+  <div class="sr"><input class="search" id="q" type="search" placeholder="Cari: botol, jaket, kunci, lab…" aria-label="Cari barang">
+  <div class="tabs" id="tabs"><button data-t="all" aria-pressed="true">Semua</button><button data-t="lost" aria-pressed="false">Hilang</button><button data-t="found" aria-pressed="false">Ditemukan</button></div></div>
+  <div class="cats" id="cats"></div>
+</div></div>
+
+<main class="main">
+  <div class="stats" id="stats" aria-live="polite"></div>
+  <div class="grid" id="list"></div>
+</main>
+<footer>Data tersimpan di perangkat ini. Barang temuan sebaiknya diserahkan ke ruang guru atau petugas piket.</footer>
+
+<dialog id="fd"><form class="dp" id="f" method="dialog">
+  <h2>Buat laporan</h2>
+  <div class="seg"><label><input type="radio" name="type" value="lost" checked><span class="l">Hilang</span></label><label><input type="radio" name="type" value="found"><span class="f">Ditemukan</span></label></div>
+  <label>Nama barang<input name="name" required maxlength="60" placeholder="Contoh: Botol minum biru"></label>
+  <div class="r2"><label>Kategori<select name="cat" id="cs"></select></label><label>Tanggal<input type="date" name="date" required></label></div>
+  <label>Lokasi<input name="place" required maxlength="60" placeholder="Contoh: Kantin, Lab Komputer"></label>
+  <label>Ciri-ciri<textarea name="desc" rows="2" maxlength="200" placeholder="Warna, merek, stiker, tanda khusus"></textarea></label>
+  <label>Foto (opsional)<input type="file" id="photo" accept="image/*"></label>
+  <img class="prev" id="prev" alt="Pratinjau foto">
+  <div class="r2"><label>Nama pelapor<input name="who" required maxlength="40" placeholder="Nama dan kelas"></label><label>Kontak<input name="contact" required maxlength="40" placeholder="No. WhatsApp atau ruang guru"></label></div>
+  <div class="fa"><button type="button" class="b o" id="cx">Batal</button><button class="b" type="submit">Simpan laporan</button></div>
+</form></dialog>
+
+<dialog id="dd"><div class="dp" id="dc"></div></dialog>
+<div class="toast" id="toast" role="status"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
